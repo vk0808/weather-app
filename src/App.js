@@ -3,7 +3,7 @@ import SeachForm from "./components/SearchForm";
 
 export default function App() {
   return (
-    <div className="app">
+    <div className="app warm">
       <SeachForm />
     </div>
   );
