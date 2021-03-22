@@ -1,11 +1,10 @@
 import "./styles.css";
-import SeachForm from './components/SearchForm'
-
+import SeachForm from "./components/SearchForm";
 
 export default function App() {
   return (
-    <>
+    <div className="app">
       <SeachForm />
-    </>
+    </div>
   );
 }
