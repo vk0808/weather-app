@@ -15,7 +15,7 @@ const Weather = () => {
   const {day, date, month, year} = dateBuilder(new Date())
   return (
     <div>
-      <div className="location box">
+      <div className="location-box">
         <div className="location">
           New York City, US
         </div>
