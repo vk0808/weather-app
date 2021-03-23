@@ -26,7 +26,7 @@ const Weather = () => {
       </div>
       <div className="weather-box">
         <div className="temperature">
-          15 &#8451;
+          15 &#0176;c
         </div>
         <div className="weather">
           sunny
