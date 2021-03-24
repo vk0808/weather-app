@@ -39,12 +39,6 @@ const Weather = () => {
 
   const { day, date, month, year } = dateBuilder(new Date());
 
-  console.log("weather: ", weather);
-
-  if (!weather) {
-    return <h2 className="section-title">oops! can't find weather details</h2>;
-  }
-
   return (
     <>
       {(typeof weather.main !== "undefined") ? (
