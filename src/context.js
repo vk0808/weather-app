@@ -8,7 +8,7 @@ export const AppContext = React.createContext();
 export const AppProvider = ({ children }) => {
   const [query, setQuery] = useState("bangalore");
   const [weather, setWeather] = useState([]);
-
+  
   const search = (e) => {
     axios
       .get(`${url}${query}&units=metric&appid=${api_key}`)

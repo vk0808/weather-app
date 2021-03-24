@@ -41,7 +41,7 @@ const Weather = () => {
 
   return (
     <>
-      {(typeof weather.main !== "undefined") ? (
+      { weather.name ? (
         <div>
           <div className="location-box">
             <div className="location">{weather.name}, {weather.sys.country}</div>
@@ -51,6 +51,7 @@ const Weather = () => {
             </div>
           </div>
           <div className="weather-box">
+            <div className="weather">{weather.weather[0].main}</div>
             <div className="temperature">
               {Math.round(weather.main.temp)}
               &#0176;c
@@ -61,7 +62,6 @@ const Weather = () => {
                 <p><span className="day">pressure: </span>{weather.main.pressure} hPa</p>
               </div>
             </div>
-            <div className="weather">{weather.weather[0].main}</div>
           </div>
         </div>
       ) : ('')}
