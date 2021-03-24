@@ -52,8 +52,14 @@ const Weather = () => {
           </div>
           <div className="weather-box">
             <div className="temperature">
-              {weather.main.temp}
+              {Math.round(weather.main.temp)}
               &#0176;c
+              <div className="sub-details">
+                <p><span className="day">feels like: </span>{weather.main.feels_like} &#0176;c</p>
+                <p><span className="day">speed: </span>{weather.wind.speed} m/s</p>
+                <p><span className="day">humidity: </span>{weather.main.humidity} %</p>
+                <p><span className="day">pressure: </span>{weather.main.pressure} hPa</p>
+              </div>
             </div>
             <div className="weather">{weather.weather[0].main}</div>
           </div>
