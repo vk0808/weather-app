@@ -7,7 +7,7 @@ export default function App() {
   const { weather } = useWeatherSearch();
   
   return (
-    <div className={weather.main.temp >= 15 ? 'app warm' : 'app'}>
+    <div className={(typeof weather.main !== 'undefined') ? (weather.main.temp >= 15 ? 'app warm' : 'app') : 'app'}>
       <main>
         <SeachForm />
         <Weather />
