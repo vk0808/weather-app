@@ -2,6 +2,8 @@ import React from "react";
 import Loading from "./Loading";
 import { useWeatherSearch } from "../context";
 
+const img_url = 'https://openweathermap.org/img/wn/';
+
 const Weather = () => {
   const { weather, loading } = useWeatherSearch();
 
@@ -56,7 +58,10 @@ const Weather = () => {
             </div>
           </div>
           <div className="weather-box">
-            <div className="weather">{weather.weather[0].main}</div>
+            <div className="weather">
+              <span>{weather.weather[0].main}</span>
+              <img src={`${img_url}${weather.weather[0].icon}@2x.png`} alt="" />
+            </div>
             <div className="temperature">
               {Math.round(weather.main.temp)}
               &#0176;c
