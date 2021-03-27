@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import axios from "axios";
-const url = "https://api.openweathermap.org/data/2.5/weather?q=";
+const url = "https://api.openweathermap.org/data/2.5/weather?";
 const api_key = process.env.REACT_APP_API_KEY;
 
 export const AppContext = React.createContext();
@@ -13,7 +13,7 @@ export const AppProvider = ({ children }) => {
   const search = () => {
     setLoading(true)
     axios
-      .get(`${url}${query}&units=metric&appid=${api_key}`)
+      .get(`${url}q=${query}&units=metric&appid=${api_key}`)
       .then((response) => {
         // setQuery("");
         setWeather(response.data);
@@ -24,6 +24,32 @@ export const AppProvider = ({ children }) => {
         setLoading(false)
       });
   };
+  
+  useEffect(() => {
+    var options = {
+      enableHighAccuracy: true,
+      timeout: 2000,
+      maximumAge: 10000
+    };
+
+    function success(pos) {
+      const {latitude, longitude} = pos.coords
+      axios
+        .get(`${url}lat=${latitude}&lon=${longitude}&units=metric&appid=${api_key}`)
+        .then((response) => {
+          setWeather(response.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+
+    function error(err) {
+      console.warn(`ERROR(${err.code}): ${err.message}`);
+    }
+
+    navigator.geolocation.getCurrentPosition(success, error, options);
+  }, [])
 
   useEffect(() => {
     const data = search();
