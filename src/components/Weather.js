@@ -1,8 +1,9 @@
 import React from "react";
+import Loading from "./Loading";
 import { useWeatherSearch } from "../context";
 
 const Weather = () => {
-  const { weather } = useWeatherSearch();
+  const { weather, loading } = useWeatherSearch();
 
   const dateBuilder = (d) => {
     let months = [
@@ -38,6 +39,10 @@ const Weather = () => {
   };
 
   const { day, date, month, year } = dateBuilder(new Date());
+  
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <>

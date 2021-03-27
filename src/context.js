@@ -6,18 +6,22 @@ const api_key = process.env.REACT_APP_API_KEY;
 export const AppContext = React.createContext();
 
 export const AppProvider = ({ children }) => {
+  const [loading, setLoading] = useState(true);
   const [query, setQuery] = useState("bangalore");
   const [weather, setWeather] = useState([]);
   
-  const search = (e) => {
+  const search = () => {
+    setLoading(true)
     axios
       .get(`${url}${query}&units=metric&appid=${api_key}`)
       .then((response) => {
-        setQuery("");
+        // setQuery("");
         setWeather(response.data);
+        setLoading(false)
       })
       .catch((error) => {
         console.log(error);
+        setLoading(false)
       });
   };
 
@@ -29,6 +33,7 @@ export const AppProvider = ({ children }) => {
   return (
     <AppContext.Provider
       value={{
+        loading,
         query,
         setQuery,
         weather,

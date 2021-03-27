@@ -119,3 +119,10 @@ main {
   row-gap: 0.5rem;
   text-shadow: 3px 3px rgb(50 50 70 / 50%);
 }
+
+.loader {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+}
