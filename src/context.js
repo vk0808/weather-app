@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import axios from "axios";
 const url = "https://api.openweathermap.org/data/2.5/weather?";
+// not included api key 
 const api_key = process.env.REACT_APP_API_KEY;
 
 export const AppContext = React.createContext();
